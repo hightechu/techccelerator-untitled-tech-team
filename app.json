@@ -1,7 +1,7 @@
 {
   "name": "Start on Heroku: Node.js",
   "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/hightechu/techccelerator-2022-template",
+  "repository": "https://github.com/hightechu/techccelerator-untitled-tech-team",
   "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/main/public/node.svg",
   "keywords": ["node", "express", "heroku"],
   "addons": ["heroku-postgresql:hobby-dev"]
