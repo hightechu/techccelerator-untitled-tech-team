@@ -1,0 +1,40 @@
+{
+  "name": "js-getting-started",
+  "version": "0.3.0",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "16.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.5",
+    "express": "^4.15.2",
+    "pg-promise": "^10.11.1"
+  },
+  "devDependencies": {
+    "got": "^11.3.0",
+    "nodemon": "^2.0.19",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hightechu/techccelerator-2022-template.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hightechu/techccelerator-2022-template/issues"
+  },
+  "homepage": "https://github.com/hightechu/techccelerator-2022-template#readme",
+  "author": "aabuelazm"
+}
