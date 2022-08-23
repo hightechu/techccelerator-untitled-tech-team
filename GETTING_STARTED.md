@@ -114,7 +114,7 @@ The Techccelerator 2022 web app project comes with an automatic deploy to Heroku
 - [ ] Set a Heroku Account. For more information, visit "[Heroku](https://www.heroku.com)".
 - [ ] Click on the **Deploy to Heroku** button and follow the prompts:
 
-  [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+  [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hightechu/techccelerator-untitled-tech-team)
 
 - [ ] Enable Automatic Deployments. For more information, visit "[Automatic deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys)".
 
