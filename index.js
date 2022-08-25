@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')))
   // ROUTING EXAMPLES
   .get('/', (req, res) => res.render('pages/index', { title: 'Home' }))
   .get('/help', (req, res) => res.render('pages/help', { title: 'Help' }))
+  .get('/stream', (req, res) => res.render('pages/stream', { title: 'Stream' }))
   // ROUTING STARTS HERE
 
 
