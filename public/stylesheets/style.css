@@ -18,3 +18,10 @@ h1 {
 body {
   background-image: url("citytile1.jpg");
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
