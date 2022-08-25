@@ -9,8 +9,8 @@ const { errors, queryResult } = require('pg-promise');
 const { isNull } = require('util');
 const pgp = require('pg-promise')();
 const db = pgp({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  connectionString: process.env.DATABASE_URL //,
+ //  ssl: { rejectUnauthorized: false }
 });
 const PORT = process.env.PORT || 5000
 const saltRounds = 10;
@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')))
   // ROUTING EXAMPLES
   .get('/', (req, res) => res.render('pages/index', { title: 'Home' }))
   .get('/help', (req, res) => res.render('pages/help', { title: 'Help' }))
+  .get('/stream', (req, res) => res.render('pages/stream', { title: 'Stream' }))
   // ROUTING STARTS HERE
 
 
