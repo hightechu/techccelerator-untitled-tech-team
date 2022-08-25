@@ -1,0 +1,36 @@
+
+<%- include('../partials/head'); %>
+
+<header>
+  <%- include('../partials/nav'); %>
+</header>
+
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Us</h1>
+        <form action="/newpost" method="post" autocomplete="on">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="dateandtime">Date and Time:</label><br>
+            <input type="integer" id="dateandtime" name="dateandtime"><br>
+            <label for="newpost">Post:</label><br>
+            <input type="text" id="newpost" name="newpost"><br>
+            <input type="submit" value="Submit"><br>
+          </form>
+        <p>
+          bippity boppity boo
+        </p>
+        <p>
+          Lorem ipsum dolor 
+        </p>
+        <p>
+          <a href="">Link</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <%- include('../partials/footer'); %>
