@@ -17,9 +17,17 @@ const saltRounds = 10;
 
 // DATABASE CONFIG
 db.query("CREATE TABLE IF NOT EXISTS users ( \
-  Username varchar(50) NOT NULL UNIQUE, \
+  Username varchar(50) NOT NULL UNIQUE PRIMARY KEY, \
   Password varchar(60) NOT NULL);"
 );
+
+// POST DATABASE
+db.query("CREATE TABLE IF NOT EXISTS posts ( \
+  Author varchar(50) NOT NULL, \
+  Posttime timestamp(10) DEFAULT CURRENT_TIMESTAMP, \
+  Post text NOT NULL);"
+);
+
 // DEVELOPERS SHOULD ADD CODE HERE
 
 
@@ -32,9 +40,17 @@ app.use(express.static(path.join(__dirname, 'public')))
   // ROUTING EXAMPLES
   .get('/', (req, res) => res.render('pages/index', { title: 'Home' }))
   .get('/help', (req, res) => res.render('pages/help', { title: 'Help' }))
-  .get('/stream', (req, res) => res.render('pages/stream', { title: 'Stream' }))
+  .get('/stream', async (req, res) => {
+    var newPosts = await loadpost()
+    res.render('pages/stream', { title: 'Stream', recentPosts: newPosts })
+  })
+  .get('/newpost', (req, res) => res.render('pages/newpost', { title: 'New Post' }))
   // ROUTING STARTS HERE
-
+  .post('/newpost', async (req, res) => {
+    await db.query(`INSERT INTO posts (author, post) VALUES ('${req.body.username}', '${req.body.newpost}')`)
+    res.send("Success")
+  })
+  
 
 
   // ROUTING ENDS HERE
@@ -59,6 +75,12 @@ async function loginUser(username, password) {
       console.log(error.message || error)
       return await bcrypt.compare('2', fakeHash).then(async () => { return null })
     })
+  })
+}
+
+async function loadpost(_p1){
+  return await db.query('SELECT post FROM posts ORDER BY posttime DESC', (posts) => {
+    return posts;
   })
 }
 

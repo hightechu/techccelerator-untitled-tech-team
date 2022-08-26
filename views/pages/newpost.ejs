@@ -1,0 +1,25 @@
+
+<%- include('../partials/head'); %>
+
+<header>
+  <%- include('../partials/nav'); %>
+</header>
+
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <center><h1>New Post</h1>
+        <form action="/newpost" method="post" autocomplete="on">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="newpost">Post:</label><br>
+            <input type="text" id="newpost" name="newpost"><br>
+            <input type="submit" value="Submit"><br>
+          </form></center>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <%- include('../partials/footer'); %>
