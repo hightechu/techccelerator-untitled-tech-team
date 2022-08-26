@@ -9,8 +9,8 @@ const { errors, queryResult } = require('pg-promise');
 const { isNull } = require('util');
 const pgp = require('pg-promise')();
 const db = pgp({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  connectionString: process.env.DATABASE_URL//,
+  //ssl: { rejectUnauthorized: false }
 });
 const PORT = process.env.PORT || 5000
 const saltRounds = 10;
@@ -40,11 +40,15 @@ app.use(express.static(path.join(__dirname, 'public')))
   // ROUTING EXAMPLES
   .get('/', (req, res) => res.render('pages/index', { title: 'Home' }))
   .get('/help', (req, res) => res.render('pages/help', { title: 'Help' }))
-  .get('/stream', (req, res) => res.render('pages/stream', { title: 'Stream' }))
+  .get('/stream', async (req, res) => {
+    var newPosts = await loadpost()
+    res.render('pages/stream', { title: 'Stream', recentPosts: newPosts })
+  })
   .get('/newpost', (req, res) => res.render('pages/newpost', { title: 'New Post' }))
   // ROUTING STARTS HERE
-  .post('/newpost', async(req, res) => {
-  db.query(`INSERT INTO posts (${req.body.username}, ${req.body.dateandtime}, ${req.body.newpost})`)
+  .post('/newpost', async (req, res) => {
+    await db.query(`INSERT INTO posts (author, post) VALUES ('${req.body.username}', '${req.body.newpost}')`)
+    res.send("Success")
   })
   
 
@@ -71,6 +75,12 @@ async function loginUser(username, password) {
       console.log(error.message || error)
       return await bcrypt.compare('2', fakeHash).then(async () => { return null })
     })
+  })
+}
+
+async function loadpost(_p1){
+  return await db.query('SELECT post FROM posts ORDER BY posttime DESC', (posts) => {
+    return posts;
   })
 }
 
