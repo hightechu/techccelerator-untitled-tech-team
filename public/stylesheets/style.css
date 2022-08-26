@@ -13,15 +13,16 @@ header {
 
 h1 {
   font-family: 'Aclonica', Serif;
+  text-align: center;
 }
 
 body {
   background-image: url("citytile1.jpg");
 }
 
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+p {
+  padding-top: 50px;
+  padding-right: 150px;
+  padding-bottom: 0px;
+  padding-left: 150px;
 }
